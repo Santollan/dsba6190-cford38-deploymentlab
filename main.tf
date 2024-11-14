@@ -47,7 +47,7 @@ resource "azurerm_subnet" "subnet" {
 
 // Database 
 
-esource "azurerm_mssql_server" "sql" {
+resource "azurerm_mssql_server" "sql" {
   name                         = "sev-${var.class_name}${var.student_name}${var.environment}${random_integer.deployment_id_suffix.result}"
   resource_group_name          = azurerm_resource_group.rg.name
   location                     = azurerm_resource_group.rg.location
@@ -86,7 +86,7 @@ resource "azurerm_storage_account" "storage" {
   account_replication_type = "LRS"
   is_hns_enabled           = "true"
 
-network_rules {
+  network_rules {
     default_action             = "Deny"
     ip_rules                   = ["100.0.0.1"]
     virtual_network_subnet_ids = [azurerm_subnet.subnet.id]
