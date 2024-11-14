@@ -35,7 +35,7 @@ variable "environment" {
 }
 
 variable "student_name" {
-  description = "Application Name"
+  description = "Student Name"
   type        = string
   default     = "nsantoll"
 }
